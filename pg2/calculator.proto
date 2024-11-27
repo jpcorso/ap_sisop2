@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+message SumRequest {
+  double a = 1;
+  double b = 2;
+}
+
+message SumReply {
+  double s = 1;
+}
+
+message MultiplyRequest {
+  double a = 1;
+  double b = 2;
+}
+
+message MultiplyReply {
+  double result = 1;
+}
+
+message ReturnBiggerRequest {
+  double a = 1;
+  double b = 2;
+  double c = 3;
+}
+
+message ReturnBiggerReply {
+  double result = 1;
+}
+
+message QuotientRequest {
+  double numerator = 1;
+  double denominator = 2;
+}
+
+message QuotientReply {
+  double quotient = 1;
+  double rest = 2;
+}
+
+service Calculator {
+  rpc Sum (SumRequest) returns (SumReply);
+  rpc Multiply (MultiplyRequest) returns (MultiplyReply);
+  rpc ReturnBigger (ReturnBiggerRequest) returns (ReturnBiggerReply);
+  rpc Quotient (QuotientRequest) returns (QuotientReply);
+}
